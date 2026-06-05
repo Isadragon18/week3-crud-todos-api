@@ -9,7 +9,8 @@ let todos = [
 
 // GET All – Read
 app.get('/todos', (req, res) => {
-  res.status(200).json(todos); // Send array as JSON
+  todos_selected = todos.map((t) => ({id: todos.findIndex(t.id) + 1, task: t.task, completed: t.completed})); // Select only id and task
+  res.status(200).json({id: todos_selected.findIndex(todos) }); // Send array as JSON
 });
 
 // GET All – Active
