@@ -9,8 +9,8 @@ let todos = [
 
 // GET All – Read
 app.get('/todos', (req, res) => {
-  todos_selected = todos.map((t) => ({id: todos.findIndex(t.id) + 1, task: t.task, completed: t.completed})); // Select only id and task
-  res.status(200).json({id: todos_selected.findIndex(todos) }); // Send array as JSON
+  const todos_selected = todos.map((t) => ({id: (todos.findIndex(t.id) + 1), task: t.task, completed: t.completed})); // Select only id and task
+  res.status(200).json(todos_selected); // Send array as JSON
 });
 
 // GET All – Active
@@ -63,4 +63,4 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = 3002;
-app.listen(PORT, () => console.log(`Server on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server on port http://localhost:${PORT}`));
